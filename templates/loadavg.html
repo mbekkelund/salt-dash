@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="jumbo">
+  </div>
+  <p>
+
+	{% for minion,load in minions.items() %}
+      <table>
+        <tr>
+          <td>{{ minion }}</td>
+          <td>
+            {% for l,v in load.items() %}
+              {{ l }}: {{ v }}
+            {% endfor %}
+          </td>
+        </tr>
+      </table>
+  {% endfor %}
+{% endblock %}

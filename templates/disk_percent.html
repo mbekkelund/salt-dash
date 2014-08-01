@@ -1,0 +1,22 @@
+  {% extends "layout.html" %}
+  {% block content %}
+
+
+  {% for minion,drives in minions.items() %}
+    <h3>{{ minion }}</h3>
+    {% for d,v in drives.items() %}
+      {% set v = v|replace('%','') %}
+      {% set color = "green" %}
+      {% if v >= "80" %}
+        {%  set color = "yellow" %}
+      {% endif %}
+      {% if v >= "90" %}
+        {% set color = "red" %}
+      {% endif %}      
+      <div class="progress progress-striped">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ v }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ v }}%; background-color:{{ color }}"><span class="sr-only">{{ d }} {{ v }}% used</span>
+          </div>
+      </div>
+    {% endfor %}
+  {% endfor %}
+  {% endblock %}

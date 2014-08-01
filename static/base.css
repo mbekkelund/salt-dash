@@ -1,0 +1,1093 @@
+@import "jquery.ui.base.css";
+@import "jquery.ui.theme.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body { 
+    /* background: #2e3436; */
+    /*background-image: url('/static/images/beer-pattern-vector.jpg');*/
+    background: black;
+    font-size: 90%;
+    font-family: arial, helvetica, sans-serif;
+    color: #333;
+}
+p, li, table {
+    font-size: 1em;
+}
+ul {
+    margin-left: 15px;
+}
+pre {
+    white-space: pre;
+}
+div#content {
+    /* background: white;*/
+    background: black;
+    background-image: url('/static/images/beer-pattern-vector.jpg');
+}
+h1 {
+	color:white;
+}
+#header {
+    margin: 1em 2em;
+}
+    h1.title {
+        color: white;
+        letter-spacing: -1px;
+        font-weight: normal;
+    }
+    h1 a {
+        color: inherit;
+    }
+    h1 span {
+        font-weight: bold;
+    }
+#footer {
+    border-top: 5px solid silver;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+#content {
+    padding: 2em;
+    position: relative;
+}
+
+
+table,
+.error_msg,
+.message {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 0 0 10px 0;
+    padding: .5em 1em;
+}
+
+
+.message {
+    border: 1px solid #bbc1b6;
+    background: #e3f5d0;
+    display: block;
+    color: #57852b;
+}
+
+.error_msg {
+    border: 1px solid #6F0000;
+    background: #ef2929;
+    color: white;
+    background-image:-moz-linear-gradient(center top , #AF1000 50%, #990000 50%);
+    background-image:-webkit-gradient(linear, center top, center bottom, from(#AF1000), to(#990000));
+    color:white;
+    text-shadow:1px 1px 0 #5F0000;
+}
+.label_comments {
+    display: block;
+}
+label {
+    display: block;
+    width: 10em;
+    position: relative;
+    margin: .5em 0em;
+}
+label input {
+    position: absolute;
+    left: 100%;
+}
+label select {
+    position: absolute;
+    left: 100%;
+}
+.submit {
+    margin-top: 2em;;
+}
+.error_messages {
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* style external links */
+
+a[href^="http://svn"] {
+}
+
+/* menu-style */
+
+
+ul#menu {
+    /* border-bottom: 5px solid #e74c00;*/
+    border-bottom: 5px solid #999999;
+    height: 30px;
+    list-style: none;
+    padding-left: 2em;
+    margin-left: -.5em;
+}
+    ul#menu li {
+        float: left;
+        margin-left: 0;
+        
+        padding: 0 .5em;
+        height: 30px;
+        line-height: 30px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-radius-topleft: 5px;
+        -webkit-border-radius-topright: 5px;
+    } 
+        ul#menu li a {
+            color: white;
+            font-weight: bold;
+        } 
+    ul#menu li.active {
+        /*background-color: #e74c00*/;
+        background-color: #999999;
+        border: 0px solid black;
+        border-bottom: none;
+        height: 30px;
+    }
+        ul#menu li.active a {
+            color: white;
+        }
+#submenu {
+    margin-left: -.5em;
+    padding-left: 2em;
+    clear: left;
+    height: 20px;
+    list-style: none;
+    /* background-color: #e74c00;*/
+    background-color: black;
+}
+    ul#submenu li {
+        padding: 0 .5em;
+        float: left;
+        line-height: 20px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-radius-topleft: 5px;
+        -webkit-border-radius-topright: 5px;
+    }
+    ul#submenu li.active {
+        background: #fff;
+        font-weight: bold;
+    }
+        ul#submenu a {
+            color: white;
+        }
+        ul#submenu li.active a {
+            color: #2e3436;
+        }
+li.home a {
+    padding-left: 20px;
+    background: url(images/go-home.png) no-repeat 0% 0% !important;
+}
+
+ul#metashit {
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    font-size: .8em;
+}
+    ul#metashit li {
+        display: inline;
+        color: threedface;
+        margin-left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+    }
+        ul#metashit li.expand {
+            background-color: #E74C00;
+            -moz-border-radius-topleft: 3px;
+            -moz-border-radius-topright: 3px;
+            border-right: 0;
+        }
+    ul#metashit li.logout {
+        border-right: 0;
+    }
+        ul#metashit li a {
+            color: inherit;
+        }
+    ul#metashit .expander {
+        cursor: pointer;
+        font-weight: bold;
+        margin-right: -10px;
+    }
+    ul#metashit .expander:before {
+        content: '∇';
+    }
+    ul#metashit .expand .expander:before {
+        content: '∆';
+    }
+    ul#metashit .submenu {
+        position: absolute;
+        display: none;
+        width: 200px;
+        background-color: gray;
+        color: black;
+        right: -25px;
+        border: 2px solid #E74C00;
+        z-index: 2;
+    }
+        ul#metashit .submenu li {
+            display: block;
+            color: silver;
+        }
+            ul#metashit .submenu li a {
+                color: white;
+            }
+            ul#metashit .submenu li li {
+                padding-left: 0;
+            }
+    ul#metashit .expand .submenu {
+        display: block;
+    }
+    
+li.logout a {
+    /*background: url(images/system-log-out.png) no-repeat 100% 50% !important;*/
+}
+
+li.status a {
+}
+
+h3 {
+    margin: 30px 0 10px 0;
+}
+
+/* table style */
+
+table {
+    font-family: consolas, inconsolata, monospace;
+    border-collapse: collapse;
+    font-size: .9em;
+    width: 100%;
+}
+
+code {
+    font-family: consolas, inconsolata, monospace;
+    font-size: .9em;
+    
+}
+    table th {
+        text-align: left;
+        color: #000;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+    table th:last-child, table td:last-child {
+        border-right: 0;
+    }
+    table td, 
+    table th {
+        padding: 4px 5px;
+    }
+    table .odd td {
+        background: #f6f6f6;
+        background-image:-moz-linear-gradient(center top , #f9f9f9 50%, #eee 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#f9f9f9), to(#eee));
+    }
+    table td.qa {
+        border-color: #BDBF00;
+        background-color: #EDEF00 !important;
+        background-image:-moz-linear-gradient(center top , yellow 50%, #EDEF00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(yellow), to(#EDEF00));
+        color: black; 
+    }
+    table td.testing {
+        border-color: #BDBF00;
+        background-color: #EDEF00 !important;
+        background-image:-moz-linear-gradient(center top , yellow 50%, #EDEF00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(yellow), to(#EDEF00));
+        color: black; 
+    }
+    table td.removed {
+        border-color: #6F0000;
+        background-color: #990000 !important;
+        background:-moz-linear-gradient(center top , #AF1000 50%, #990000 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#AF1000), to(#990000));
+        color:white;
+        text-shadow:1px 1px 0 #5F0000;
+    }
+    table td.production  {
+        color: white;
+        border-color: #016F00;
+        background-color: #018f00 !important;
+        background-image:-moz-linear-gradient(center top , #00B400 50%, #018F00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#00B400), to(#018F00));
+        text-shadow:1px 1px 0 #015F00;
+    }
+    table td.development {
+        border-color: #BDBF00;
+        background-color: #EDEF00 !important;
+        background-image:-moz-linear-gradient(center top , yellow 50%, #EDEF00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(yellow), to(#EDEF00));
+        color: black; 
+    }
+    table "td.powered off" {
+        border-color: #6F0000;
+        background-color: #990000 !important;
+        background:-moz-linear-gradient(center top , #AF1000 50%, #990000 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#AF1000), to(#990000));
+        color:white;
+        text-shadow:1px 1px 0 #5F0000;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    table tr:hover .odd td,
+    table tr:hover td {
+    }
+    table tr:hover,
+    table tr:hover {
+        /* -moz-box-shadow: 0 0 10px #000;*/
+    }
+    table a {
+    }
+    
+    /* status colors */
+    .fail td {
+        border-color: #6F0000;
+        background-color: #990000 !important;
+        background:-moz-linear-gradient(center top , #AF1000 50%, #990000 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#AF1000), to(#990000));
+        color:white;
+        text-shadow:1px 1px 0 #5F0000;
+    }
+        .fail td a {
+            text-decoration: underline;
+            color: white;
+        }
+    .ok td {
+        color: white;
+        border-color: #016F00;
+        background-color: #018f00 !important;
+        background-image:-moz-linear-gradient(center top , #00B400 50%, #018F00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(#00B400), to(#018F00));
+        text-shadow:1px 1px 0 #015F00;
+    }
+        table tr.ok td a {
+            color: white;
+            text-decoration: underline;
+        }
+    .dubious td {
+        border-color: #BDBF00;
+        background-color: #EDEF00 !important;
+        background-image:-moz-linear-gradient(center top , yellow 50%, #EDEF00 50%);
+        background-image:-webkit-gradient(linear, center top, center bottom, from(yellow), to(#EDEF00));
+        color: black;
+    }
+        .dubious td a {
+            text-decoration: underline;
+            color: black;
+        }
+
+table.ci tr.running td.repo {
+    background-image: url(images/throbber.gif);
+    background-position: 99% 50%;
+    background-repeat: no-repeat;
+}
+   .ci .actions .redo {
+    }
+table.running {
+    background-image: url(images/throbber.gif);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.luggage {
+    color: #999;
+}
+.luggage a {
+    color: #9494f8;
+}
+.timestamp {
+    padding-right: 1em;
+}	
+.firstchild_key td:first-child {
+    font-weight: bold;
+}
+	
+/* packages_list.css */
+
+.packages_list_package_main {
+    width: 40%;
+}
+
+/* packages_viewver.css */
+
+.packages_viewver_approval {
+    margin: 20px 0;
+}
+.packages_viewver_approval_comment {
+    display: block;
+    margin-top: 20px;
+}
+.packages_viewver_approval_comment input {
+    padding: 2px 3px;
+    width: 300px;
+    height: 100px;
+}
+
+/* login style */
+
+div#login {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    border-top: 1px solid #dedede;
+    border-left: 1px solid #dedede;
+    background: #efefef;
+}
+    div#login h2,
+    div#login p {
+        margin-bottom: .5em;
+    }
+    div#login input.text {
+        padding: 3px 6px;
+        border: 1px inset threedface;
+        width: 95%;
+    }
+    div#login div.logincol {
+        width: 50%;
+        float: left;
+    }
+
+    .submit,
+    .text {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+
+/* pager */
+div.pager {
+    text-align: center;
+    clear: both;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+div.pager a {
+    display: inline-block;
+    height: 20px;
+    width: 30px;
+    border: 1px solid silver;
+} 
+div.pager a * {
+    vertical-align: middle;
+}
+div.pager a.cur {
+    background-color: #e74c00;
+}
+        
+div.pager div.left {
+    float: left;
+}
+div.pager div.right {
+    float:right;
+}
+div.pager div.clear {
+    clear: both;
+}
+
+fieldset {
+    border: 0;
+}
+
+.clear {
+    clear: both;
+    font-size: 0;
+}
+	
+.filtered-hidden {
+    display: none;
+}
+.filtered thead tr {
+    display: table-row !important;
+}
+
+
+a.toggle {
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+    background: url(images/key_up.png) no-repeat 50% 50%;
+    cursor: pointer;
+    margin-right: 5px;
+}
+    a.toggle.off {
+        background: url(images/key_down.png) no-repeat 50% 50%;
+    }
+.hidden {
+    display: none;
+}
+
+.package_latest_table {
+    margin: 0 -2em;
+    padding: 2em;
+}
+
+.package_latest_header {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.ci_viewci_tests_table code {
+    width: 100%;
+}
+
+/* Toolbar classes */
+
+.toolbar {
+    position: absolute;
+    right: 1em;
+    padding: 0.1em 1em;
+    top: 0;
+    background-color: #E74C00;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-radius-bottomright: 5px;
+    
+}
+    .toolbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0.9em;
+    }
+        .toolbar li {
+            display: inline;
+            margin-right: 1em;
+        }
+        .toolbar li:last-child {
+            margin-right: 0;
+        }
+        .toolbar a {
+            color: white;
+        }
+
+fieldset {
+        /* padding: 1em; */
+        padding: 0;
+}
+
+fieldset .button,
+fieldset .checkbox,
+fieldset .contentbutton,
+fieldset .date,
+fieldset .file,
+fieldset .image,
+fieldset .multi,
+fieldset .password,
+fieldset .radio,
+fieldset .recaptcha,
+fieldset .reset,
+fieldset .select,
+fieldset .submit,
+fieldset .text,
+fieldset .textarea
+{
+        display: block;
+        /* clear: left; */
+        border: 0;
+        margin: 1px;
+        /* when no label */
+        margin-left: 12em;
+}
+
+/* make the noscript textarea sit below the iframe
+*/
+fieldset .recaptcha noscript textarea {
+    display: block;
+}
+
+/* override the iframe's height="" - it seems a bit big
+*/
+fieldset .recaptcha iframe {
+    height: 230px ! important;
+}
+
+fieldset .button.label,
+fieldset .checkbox.label,
+fieldset .contentbutton.label,
+fieldset .date.label,
+fieldset .file.label,
+fieldset .image.label,
+fieldset .multi.label,
+fieldset .password.label,
+fieldset .radio.label,
+fieldset .recaptcha.label,
+et,
+fieldset .select,
+fieldset .submit,
+fieldset .text,
+fieldset .textarea
+{
+        display: block;
+        /* clear: left; */
+        border: 0;
+        margin: 1px;
+        /* when no label */
+        margin-left: 12em;
+}
+
+/* make the noscript textarea sit below the iframe
+*/
+fieldset .recaptcha noscript textarea {
+    display: block;
+}
+
+/* override the iframe's height="" - it seems a bit big 
+*/
+fieldset .recaptcha iframe {
+    height: 230px ! important;
+}
+
+fieldset .button.label,
+fieldset .checkbox.label,
+fieldset .contentbutton.label,
+fieldset .date.label,
+fieldset .file.label,
+fieldset .image.label,
+fieldset .multi.label,
+fieldset .password.label,
+fieldset .radio.label,
+fieldset .recaptcha.label,
+fieldset .reset.label,
+fieldset .select.label,
+fieldset .submit.label,
+fieldset .text.label,
+/*fieldset .textarea.label*/
+{
+        margin-left: 1px;
+}
+
+
+r.label {
+        /* border + margin swap values with above, to ensure rows align */
+        border: 1px #fff;
+        margin: 0;
+}
+
+form .form_error_message {
+        padding: 0.5em;
+        border: 1px solid #ff0000;
+        background-color: #ffdddd;
+}
+
+fieldset .error_message {
+       display: block;
+       color: #ff0000;
+}
+
+fieldset .label .error_message {
+       /* padding-left eq label width + padding-right */
+       padding-left: 12em;
+}
+
+fieldset .error input,
+fieldset .error textarea,
+fieldset .error select {
+       background-color: #ffdddd;
+}
+
+fieldset .button label,
+fieldset .contentbutton label,
+fieldset .checkbox label,
+fieldset .date label,
+fieldset .file label,
+fieldset .image label,
+fieldset .multi label,
+fieldset .password label,
+fieldset .radio label,
+fieldset .radiogroup label,
+fieldset .recaptcha label,
+fieldset .select label,
+fieldset .text label,
+fieldset .textarea label
+{
+        display: inline;
+        float: left;
+        width: 11em;
+        text-align: right;
+        padding-right: 1em;
+}
+pan label {
+        /* undo the above style */
+        float: none;
+        width: auto;
+        text-align: left;
+        padding-right: 0;
+}
+
+fieldset .multi .elements {
+        display: block; 
+        clear: left;
+}
+
+fieldset .multi .elements label {
+        display: block;
+        width: 10em;
+        text-align:right;
+        padding-right: 0.25em;
+        float: left;
+}
+
+fieldset .multi input,
+fieldset .multi select {
+        display: block;
+        float: left;
+        margin-right: 0.5em;
+}
+
+fieldset.checkboxgroup,
+fieldset.radiogroup
+{
+        margin: 0;
+        margin-left: 12em;
+        padding: 0;
+        width: auto;
+}
+
+fieldset.radiogroup.label {
+        border: 0;
+        margin-left: 0em;
+}
+
+fieldset .comment .comment {
+        /* when no label */
+        display: block;
+        margin-left: 0em;
+}
+fieldset .label .comment {
+        display: block;
+        margin-left: 12em;
+}
+
+/*** Alternative Layouts ***/
+
+fieldset .notes {
+        float: right;
+        width: 30%;
+        border: 1px dotted;
+}
+
+fieldset .multi.vertical input,
+fieldset .multi.vertical label,
+fieldset.checkboxgroup .vertical input,
+fieldset.radiogroup .vertical input
+{
+        display: block;
+        float: left;
+        clear: left;
+        margin-right: 0.5em;
+}
+
+fieldset .multi.vertical select {
+        display: block;
+        float: left;
+        clear: right;
+}
+
+fieldset.checkboxgroup .vertical label,
+fieldset.radiogroup .vertical label
+{
+        display: block;
+        clear: right;
+}
+
+fieldset.radiogroup .vertical .subgroup {
+        float: left;
+}
+
+fieldset .fullwidth label
+{
+        display: block;
+        float: left;
+        width: auto; */
+        text-align: left;
+}
+
+dth label
+{
+        display: block;
+        float: left;
+        width: auto; */
+        text-align: left;
+}
+
+fieldset .fullwidth .error_message {
+       padding-left: 0em;
+}
+
+fieldset .fullwidth textarea
+{
+        display: block;
+        clear: left;
+        width: 30em;
+}
+
+fieldset .dojoeditor2 .RichTextEditable { /* Dojo::Editor2 */
+        display: inline;
+        float: left;
+        background-color: #ffc;
+        padding-bottom: 0.1em;
+}
+
+input .nicblock {
+        display: inline;
+        float: left;
+}
+
+input.ipoctet {
+        padding: 3px 6px;
+        border: 1px inset threedface;
+        width: 5%;
+}
+
+input.mac {
+        padding: 3px 6px;
+        border: 1px inset threedface;
+        width: 15%;
+}
+
+.headerSortUp { 
+        /* background-image: url(http://dev-bolav:1337/static/img/desc.gif); */
+        background-color: #999; 
+        color: white;
+} 
+.headerSortDown { 
+        /* background-image: url(http://dev-bolav:1337/static/img/asc.gif); */
+        background-color: #999;
+        color: white;
+} 
+
+blockquote {
+	font-family:rookyhand, Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#666;
+}
+
+.dash {
+}
+.dash_wrapper {
+	background: white;
+	padding: 1em;
+	-moz-border-radius: .5em;
+}
+.dash_unhandled {
+	width: 60%;
+	float: left;
+}
+.dash_unhandled .dash_wrapper {
+	    margin-right: 1em;
+	    margin-bottom: 1em;
+}
+.dash_tactical_overview {
+	width: 40%;
+	float: left;
+}
+.dash_unhandled_service_problems {
+	clear: both;
+	margin-top: 0em;
+}
+
+.dash_table_head {
+	background: -moz-linear-gradient(top center, #d3d3d3, #bdbdbd);
+	color: #181818;
+	text-shadow: 1px 1px 0 #ededed;
+}
+.dash_table_head th {
+	padding: .2em 1em;
+	border-bottom: 1px solid #757575;
+	border-right: 2px groove #aaa;
+}
+.dash_table_head th:first-child {
+	border-left: none;
+}
+.dash_table_head th:last-child {
+	border-right: none;
+}
+
+/* beercolorstuffs */
+/** { margin: 0; padding: 0; border: 0; outline: none; }
+.clear { clear: both; }
+body { font: 12px/1.5em Arial, Helvetica, sans-serif; color: #000; }
+*/
+.pint { position: relative; margin: 20px auto; width: 960px; }
+.logo { position: absolute; right: 0; top: 0; }
+#response, .srm-form { position: relative; margin-bottom: 1.5em; }
+.glass { display: block; width: 150px; height: 195px; background-image: url(/static/images/glass.png); }
+/*.value { position: absolute; left: 170px; top: 20px; font-weight: normal; font-size: 18px; }
+h1 { margin-bottom: .5em; font-size: 18px; font-weight: normal; }
+.field, .pint p { margin-bottom: 1.5em; }
+
+.srm-form { float: left; display: inline; margin-right: 60px; width: 200px; }
+.srm-form form { margin-bottom: 3em; }
+legend { padding-bottom: .5em; }
+label { color: #777; }
+input { padding: 3px; width: 5em; border: 1px solid #ccc; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+input.submit { padding: 3px 8px; width: auto; background: #7aad1a; color: #fff; border: 0; font-weight: bold; box-shadow: 0 0 2px #aaa; -moz-box-shadow: 0 0 2px #aaa; -webkit-box-shadow: 0 0 2px #aaa; }
+
+.colors { float: left; display: inline; margin: 0 0 1.5em; width: 700px; }	
+.colors ul, .colors li { margin: 0; padding: 0; list-style: none; }
+.colors li { position: relative; float: left; display: inline; margin: 0 4px 4px 0; width: 20px; height: 20px; color: #000; line-height: 30px; text-align: center; border: 1px solid #ccc; font-size: 11px; text-shadow: 1px 1px 0 #fff; cursor: pointer; }
+
+.colors span { position: absolute; display: block; left: -9000em; top: 50%; line-height: 14px; height: 14px; width: 72px; margin-top: -7px; background: #ccc; border: 1px solid #aaa; z-index: 1000; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+.colors li:hover span { left: -20px; }
+
+.footer { padding: 40px 0; text-align: right; }
+
+*/
+
+/* root element  { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	border-bottom:1px solid #666;	
+	height:30px;
+}
+
+/* single tab */
+ul.tabs li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a { 
+	background: url(/static/images/blue.png) no-repeat -420px 0;
+	font-size:11px;
+	display:block;
+	height: 30px;  
+	line-height:30px;
+	width: 134px;
+	text-align:center;	
+	text-decoration:none;
+	color:#333;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+}
+
+ul.tabs a:active {
+	outline:none;		
+}
+
+/* when mouse enters the tab move the background image */
+ul.tabs a:hover {
+	background-position: -420px -31px;	
+	color:#fff;	
+}
+
+/* active tab uses a class name "current". its highlight is also done by moving the background image. */
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
+	background-position: -420px -62px;		
+	cursor:default !important; 
+	color:#000 !important;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+
+/* width 1 */
+ul.tabs a.s 			{ background-position: -553px 0; width:81px; }
+ul.tabs a.s:hover 	{ background-position: -553px -31px; }
+ul.tabs a.s.current  { background-position: -553px -62px; }
+
+/* width 2 */
+ul.tabs a.l 			{ background-position: -248px -0px; width:174px; }
+ul.tabs a.l:hover 	{ background-position: -248px -31px; }
+ul.tabs a.l.current  { background-position: -248px -62px; }
+
+
+/* width 3 */
+ul.tabs a.xl 			{ background-position: 0 -0px; width:248px; }
+ul.tabs a.xl:hover 	{ background-position: 0 -31px; }
+ul.tabs a.xl.current { background-position: 0 -62px; }
+
+
+/* initially all panes are hidden */ 
+.panes .pane {
+	display:none;		
+}
+
+or tabs  */
+ul.css-tabs {  
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #666;	 	
+}
+
+/* single tab */
+ul.css-tabs li {  
+	float:left;	 
+	padding:0; 
+	margin:0;  
+	list-style-type:none;	
+}
+
+/* link inside the tab. uses a background image */
+ul.css-tabs a { 
+	float:left;
+	font-size:13px;
+	display:block;
+	padding:5px 30px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	border-bottom:0px;
+	height:18px;
+	background-color:#efefef;
+	color:#777;
+	margin-right:2px;
+	position:relative;
+	top:1px;	
+	outline:0;
+	-moz-border-radius:4px 4px 0 0;	
+}
+
+ul.css-tabs a:hover {
+	background-color:#F7F7F7;
+	color:#333;
+}
+	
+/* selected tab */
+ul.css-tabs a.current {
+	background-color:#ddd;
+	border-bottom:1px solid #ddd;	
+	color:#000;	
+	cursor:default;
+}
+
+	
+/* tab pane */
+.css-panes div {
+	display:none;
+	border:1px solid #666;
+	border-width:0 1px 1px 1px;
+	min-height:150px;
+	padding:15px 20px;
+	background-color:#ddd;	
+}
+
+

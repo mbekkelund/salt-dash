@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="jumbo">
+  </div>
+  <p>
+
+	{% for minion,version in minions.items() %}
+      <table>
+        <tr>
+          <td width="300">{{ minion }}</td><td>{{ version }}</td>
+        </tr>
+      </table>
+  {% endfor %}
+{% endblock %}

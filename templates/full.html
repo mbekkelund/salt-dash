@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="jumbo">
+    <h1>{{ minion }}</h1>
+  </div>
+  <p>
+
+	{% for k,v in salt_version.items() %}
+      <table width="100%">
+        <tr>
+          <td>Running salt-minion version: <b><i>{{ v }}</i></b></td>
+        </tr>
+      </table>
+  {% endfor %}
+
+  <h3>grains</h3>
+  {% for k,v in grains.items() %}
+      <table>
+        <tr>
+          <td>
+            {% if v is mapping %}
+              <table>
+              {% for k2,v2 in v.items() %}
+                {% if v2 is mapping %}
+                  {% for k3,v in v2.items() %}
+                    <tr>
+                      <td>{{k2}}</td>
+                      <td>{{v2}}</td>
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr>
+                    <td>{{k2}}</td>
+                    <td>{{v2}}</td>
+                  </tr>
+                {% endif %}
+              {% endfor %}
+              </table>
+            {% endif %}
+          </td>
+        </tr>
+      </table>
+  {% endfor %}
+
+  <h3>pillars</h3>
+  {% for k,v in pillars.items() %}
+      <table>
+        <tr>
+          <td>{{ v }}</td>
+        </tr>
+      </table>
+  {% endfor %}  
+
+{% endblock %}

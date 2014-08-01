@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="jumbo">
+  </div>
+  <p>
+
+  <div class="row">
+	{% for status,minion in minions.items() %}
+    {% if status == "down" %}
+      {% set color = "important" %}
+    {% else %}
+      {% set color = "success" %}
+    {% endif %}
+    <div class="span4">
+      <h2><span class="label label-{{ color }}">{{ status|upper }}</span><span class="badge badge-{{ color }}">({{ minion|count }})</span></h2>
+      <p>
+        {% for m in minion %}
+          {% if status == "up" %}
+            <a href="/full?minion={{ m }}">{{ m }}</a><br>
+          {% else %}
+            {{ m }}<br>
+          {% endif %}
+        {% endfor %}
+      </p>
+    </div>
+  {% endfor %}
+  </div>
+
+{% endblock %}
