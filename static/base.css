@@ -1091,3 +1091,9 @@ ul.css-tabs a.current {
 }
 
 
+.filtered-hidden {
+    display: none;
+}
+.filtered thead tr {
+    display: table-row !important;
+}

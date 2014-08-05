@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 
-  <div class="jumbo">
-  </div>
-  <p>
+  <p>Filter: <input type="text" id="filter"> <span style="font-size: .7em; color: #999">Showing <strong id="filter-count">all</strong> rows</p>
 
+  <table class="filtered">
 	{% for minion,load in minions.items() %}
-      <table>
         <tr>
           <td>{{ minion }}</td>
           <td>
@@ -15,6 +13,6 @@
             {% endfor %}
           </td>
         </tr>
-      </table>
   {% endfor %}
+  </table>
 {% endblock %}

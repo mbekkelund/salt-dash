@@ -4,6 +4,10 @@
     <title>Salt Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='filter.css') }}" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jq.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/onload.js') }}"></script>
+
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -14,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">ABC Startsiden SaltStack Dashboard</a>
+          <a class="brand" href="#">SaltStack Dashboard</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
             </p>
@@ -54,5 +58,6 @@
       </div> <!--span-->
     </div> <!--row-->
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
   </body>
 </html>

@@ -3,8 +3,10 @@ import urllib
 import urllib2
 import simplejson as json
 from flask import Flask, render_template, request
+from config import *
 
 app = Flask(__name__)
+app.config.from_object('config')
 
 @app.route('/')
 def home():
@@ -36,6 +38,11 @@ def loadavg():
     minions = salt_api("local","status.loadavg",target="*")
     return render_template('loadavg.html', minions=minions)
 
+@app.route('/pkgsearch')
+def pkgsearch():
+    minions = salt_api("local","pkg.version",target="*",arg=request.args.get('pkg'))
+    return render_template('pkgsearch.html', minions=minions, pkg=request.args.get('pkg'))
+
 @app.route('/full')
 def full():
     minion = request.args.get('minion')
@@ -60,15 +67,16 @@ def salt_api(client,function,**kwargs):
         elif k == "target":
             target = v
         
-    url = "https://salt.startsiden.no:8000/run"
+    #url = "https://salt.startsiden.no:8000/run"
+    url = app.config['SALT_API_URL']
 
     values = dict()
     values["client"] = client
     values["fun"] = function
     if target: values["tgt"] = target
     if arg: values["arg"] = arg
-    values["username"] = "salt"
-    values["password"] = "salt"
+    values["username"] = app.config['SALT_USER']
+    values["password"] = app.config['SALT_PASSWORD']
     values["eauth"] = "pam"
 
     data = urllib.urlencode(values)
