@@ -1,3 +1,10 @@
+#
+# Copyright 2014 ABC Startsiden
+#
+# Author: Morten Bekkelund <morten.bekkelund@startsiden.no>
+#
+#
+
 import re
 import urllib
 import urllib2
