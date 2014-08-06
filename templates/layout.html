@@ -11,10 +11,9 @@
     <title>Salt Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ url_for('static', filename='filter.css') }}" rel="stylesheet" media="screen">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jq.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/onload.js') }}"></script>
-
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,8 +30,7 @@
             </p>
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/about">About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,7 +52,7 @@
               <br>
               Packagesearch:
               <form action="/pkgsearch" method="post">
-                <input type="text" name="pkg"><input type="submit">
+                <input type="text" name="pkg"><br><input type="submit">
               </form>
             </ul>
           </div> <!-- sidebar -->
