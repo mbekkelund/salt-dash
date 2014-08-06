@@ -45,10 +45,16 @@ def loadavg():
     minions = salt_api("local","status.loadavg",target="*")
     return render_template('loadavg.html', minions=minions)
 
-@app.route('/pkgsearch')
+@app.route('/pkgsearch', methods=['GET', 'POST'])
 def pkgsearch():
-    minions = salt_api("local","pkg.version",target="*",arg=request.args.get('pkg'))
-    return render_template('pkgsearch.html', minions=minions, pkg=request.args.get('pkg'))
+    arg = ""
+    if request.method == "POST":
+        arg = request.form['pkg']
+    elif  request.method == "GET":
+        arg = request.args.get('pkg')
+    print request.args.get('pkg')
+    minions = salt_api("local","pkg.version",target="*",arg=arg)
+    return render_template('pkgsearch.html', minions=minions, pkg=arg)
 
 @app.route('/full')
 def full():
