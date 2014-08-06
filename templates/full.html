@@ -7,7 +7,7 @@
   <p>
 
 	{% for k,v in salt_version.items() %}
-      <table width="100%">
+      <table class="table table-striped table-bordered table-condensed filtered">
         <tr>
           <td>Running salt-minion version: <b><i>{{ v }}</i></b></td>
         </tr>
@@ -16,11 +16,11 @@
 
   <h3>grains</h3>
   {% for k,v in grains.items() %}
-      <table>
+      <table class="table table-striped table-bordered table-condensed filtered">
         <tr>
           <td>
             {% if v is mapping %}
-              <table>
+              <table class="table table-striped table-bordered table-condensed filtered">
               {% for k2,v2 in v.items() %}
                 {% if v2 is mapping %}
                   {% for k3,v in v2.items() %}
@@ -45,7 +45,7 @@
 
   <h3>pillars</h3>
   {% for k,v in pillars.items() %}
-      <table>
+      <table class="table table-striped table-bordered table-condensed filtered">
         <tr>
           <td>{{ v }}</td>
         </tr>

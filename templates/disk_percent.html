@@ -1,28 +1,33 @@
   {% extends "layout.html" %}
   {% block content %}
+    <p>Filter: <input type="text" id="filter"> <span style="font-size: .7em; color: #999">Showing <strong id="filter-count">all</strong> rows</p>
+    <table class="table table-striped table-bordered table-condensed filtered" width="100%">
     {% for minion,drives in minions.items() %}
-      <h3>{{ minion }}</h3>
-      {% for d,v in drives.items() %}
-        
-        {% set color = "green" %}
-        
-        {% if '%' in v %}
-          {% set v = v|replace('%','') %}
-        {% endif %}
-        
-        {% if v|int >= 80 %}
-          {%  set color = "yellow" %}
-        {% endif %}
-        
-        {% if v|int >= 90 %}
-          {% set color = "red" %}
-        {% endif %}
-        
-        <div class="progress progress-striped">
-            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ v }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ v }}%; background-color:{{ color }}"><span class="sr-only">{{ d }} is {{ v }}% full</span>
+      <tr>
+        <td>{{ minion }}</td>
+          {% for d,v in drives.items() %}
+          <td width="200">
+            {% set color = "green" %}
+            
+            {% if '%' in v %}
+              {% set v = v|replace('%','') %}
+            {% endif %}
+            
+            {% if v|int >= 80 %}
+              {%  set color = "yellow" %}
+            {% endif %}
+            
+            {% if v|int >= 90 %}
+              {% set color = "red" %}
+            {% endif %}
+            
+            <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{ v }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ v }}%; background-color:{{ color }}"><span class="sr-only">{{ d }} is {{ v }}% full</span>
+                </div>
             </div>
-        </div>
-      
+          </td>
       {% endfor %}
+      </tr>
     {% endfor %}
+    </table>
   {% endblock %}
