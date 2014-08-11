@@ -12,12 +12,6 @@ Its purpose will be to have an overview over:
 * basic overview stuff like disk-usage, load-average and so on
 
 
-
-<<<<<<< Updated upstream
-to run it:
 edit the config.py to suit your environment
-then run : 
-=======
-to run the shit:
->>>>>>> Stashed changes
+then run :
 python routes.py
