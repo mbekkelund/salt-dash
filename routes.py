@@ -20,15 +20,26 @@ def home():
     minions = salt_api("runner","manage.status")
     return render_template('home.html', minions=minions)
 
+@app.route('/grains')
+def grains():
+    minions = salt_api("local","grains.items",target="*")
+    print minions
+    return render_template('grains.html', minions=minions)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/version')
 def version():
     minions = salt_api("local","pkg.version",target="*",arg="salt-minion")
     return render_template('version.html', minions=minions)
 
-@app.route('/grains')
-def grains():
-    minions = salt_api("local","grains.items",target="*")
-    return render_template('grains.html', minions=minions)
+
 
 @app.route('/pillars')
 def pillars():
@@ -91,12 +102,15 @@ def salt_api(client,function,**kwargs):
     values["username"] = app.config['SALT_USER']
     values["password"] = app.config['SALT_PASSWORD']
     values["eauth"] = "pam"
-
+    print url
+    print values
     data = urllib.urlencode(values)
     req  = urllib2.Request(url,data)
     res  = urllib2.urlopen(req)
     page = res.read()
     minions = json.loads(page)
+    print data
+    print minions['return'][0]
 
     return minions['return'][0]
 
